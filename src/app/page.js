@@ -44,8 +44,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-5 py-24 overflow-hidden">
         <div className="relative z-20 w-full max-w-[600px] flex flex-col items-center justify-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 md:mb-10 bg-white/5 backdrop-blur-md border border-white/8 text-[11px] md:text-xs font-bold text-violet-200 tracking-[1.5px] uppercase shadow-lg shadow-indigo-500/5">
-            <div className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse-badge"></div>
+          <div className="text-[11px] md:text-xs font-semibold text-violet-200/60 tracking-[2px] uppercase mb-8 md:mb-10">
             Stop Searching. Start Belonging.
           </div>
           <div className="text-xs md:text-sm font-bold text-white tracking-[4px] uppercase mb-4 drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]">

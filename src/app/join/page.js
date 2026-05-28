@@ -8,11 +8,16 @@ import { useSearchParams } from "next/navigation";
 function JoinFormContent() {
   const searchParams = useSearchParams();
   const [email, setEmail] = useState("");
+  const [interest, setInterest] = useState("");
 
   useEffect(() => {
     const emailParam = searchParams.get("email");
     if (emailParam) {
       setEmail(emailParam);
+    }
+    const interestParam = searchParams.get("interest");
+    if (interestParam) {
+      setInterest(interestParam);
     }
   }, [searchParams]);
 
@@ -40,13 +45,13 @@ function JoinFormContent() {
     } else {
       initializeTally();
     }
-  }, [email]);
+  }, [email, interest]);
 
-  // Build the Tally source URL with standard embed options and optional email pre-filling.
+  // Build the Tally source URL with standard embed options and optional email/interest pre-filling.
   // Note: Tally maps URL query parameters to form fields (e.g. Email -> email).
   const tallyUrl = `https://tally.so/embed/m6gM9k?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1${
     email ? `&Email=${encodeURIComponent(email)}` : ""
-  }`;
+  }${interest ? `&Interest=${encodeURIComponent(interest)}` : ""}`;
 
   return (
     <>

@@ -88,8 +88,10 @@ export default function Home() {
       <section id="vayo-way" className="relative z-10 px-6 py-24 md:py-32 max-w-6xl mx-auto border-t border-white/5">
         <div className="text-center mb-16 md:mb-20">
           <span className="text-xs font-bold text-violet-400 tracking-[3px] uppercase">The Vayo Philosophy</span>
-          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-white mt-2">
-            Why Vayo Commune?
+          <h2 className="flex items-center justify-center flex-wrap gap-x-3 gap-y-1 text-3xl md:text-5xl font-semibold tracking-tight text-white mt-2">
+            Why
+            <img src="/assets/vayo-logo.png" alt="VAYO" className="h-[28px] md:h-[44px] w-auto" />
+            Commune?
           </h2>
           <p className="text-sm md:text-base text-white/50 mt-4 max-w-xl mx-auto">
             Online matching is just the starting line. We focus on getting you offline, doing things you love, with people who share your vibe.

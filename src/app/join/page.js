@@ -7,19 +7,8 @@ import { useSearchParams } from "next/navigation";
 
 function JoinFormContent() {
   const searchParams = useSearchParams();
-  const [email, setEmail] = useState("");
-  const [interest, setInterest] = useState("");
-
-  useEffect(() => {
-    const emailParam = searchParams.get("email");
-    if (emailParam) {
-      setEmail(emailParam);
-    }
-    const interestParam = searchParams.get("interest");
-    if (interestParam) {
-      setInterest(interestParam);
-    }
-  }, [searchParams]);
+  const [email, setEmail] = useState(() => searchParams.get("email") || "");
+  const [interest, setInterest] = useState(() => searchParams.get("interest") || "");
 
   useEffect(() => {
     const scriptId = "tally-js";

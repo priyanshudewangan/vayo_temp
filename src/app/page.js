@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import EventShowcase from "@/components/EventShowcase";
-import WaveBackground from "@/components/WaveBackground";
 
 export default function Home() {
   const [email, setEmail] = useState("");
@@ -32,7 +32,7 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-4 md:px-12 h-16 md:h-20 bg-black/10 backdrop-blur-md md:bg-transparent border-b border-white/5 md:border-b-0 transition-all duration-300">
         <Link href="/" className="flex items-center decoration-none px-3.5 py-2 rounded-full bg-white/5 backdrop-blur-md border border-white/8 shadow-lg hover:bg-white/10 hover:border-white/20 transition-all duration-300 group">
-          <img src="/assets/vayo-logo.png" alt="VAYO Logo" className="h-5 md:h-6 w-auto group-hover:scale-105 group-hover:brightness-110 transition-all duration-300" />
+          <Image src="/assets/vayo-logo.png" alt="VAYO Logo" width={90} height={24} className="h-5 md:h-6 w-auto group-hover:scale-105 group-hover:brightness-110 transition-all duration-300" priority />
         </Link>
         <div className="flex items-center">
           <Link href="/join" className="flex items-center justify-center decoration-none px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-white/5 backdrop-blur-md border border-white/8 shadow-lg text-white text-xs md:text-sm font-semibold hover:bg-white/10 hover:border-white/20 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(255,255,255,0.08)] transition-all duration-300 whitespace-nowrap">
@@ -51,10 +51,10 @@ export default function Home() {
             WELCOME TO
           </div>
           <h1 className="mb-2 leading-none">
-            <img src="/assets/vayo-logo.png" alt="VAYO" className="h-[80px] md:h-[180px] w-auto mx-auto drop-shadow-[0_0_32px_rgba(99,102,241,0.55)] drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] animate-shimmer" />
+            <Image src="/assets/vayo-logo.png" alt="VAYO" width={400} height={180} className="h-[80px] md:h-[180px] w-auto mx-auto drop-shadow-[0_0_32px_rgba(99,102,241,0.55)] drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] animate-shimmer" priority />
           </h1>
           <p className="text-xl md:text-4xl font-light bg-gradient-to-r from-white/92 to-violet-300/90 bg-clip-text text-transparent italic mb-4 drop-shadow-[0_1px_6px_rgba(0,0,0,0.5)] leading-tight">
-            Let's Do It.
+            Let&apos;s Do It.
           </p>
           <p className="text-sm md:text-lg max-w-[540px] text-violet-100/82 mx-auto mb-6 leading-relaxed font-normal px-3 drop-shadow-[0_1px_8px_rgba(0,0,0,0.55)]">
             Discover people who match your vibe. <br /> No searching. Just belonging.
@@ -90,7 +90,7 @@ export default function Home() {
           <span className="text-xs font-bold text-violet-400 tracking-[3px] uppercase">The Vayo Philosophy</span>
           <h2 className="flex items-center justify-center flex-wrap gap-x-3 gap-y-1 text-3xl md:text-5xl font-semibold tracking-tight text-white mt-2">
             Why
-            <img src="/assets/vayo-logo.png" alt="VAYO" className="h-[28px] md:h-[44px] w-auto" />
+            <Image src="/assets/vayo-logo.png" alt="VAYO" width={100} height={44} className="h-[28px] md:h-[44px] w-auto" />
             Commune?
           </h2>
           <p className="text-sm md:text-base text-white/50 mt-4 max-w-xl mx-auto">
@@ -129,7 +129,7 @@ export default function Home() {
             </div>
             <h3 className="text-xl font-bold text-white mb-3">Activity-First Vibes</h3>
             <p className="text-sm text-white/60 leading-relaxed font-normal">
-              Meeting new people is easier when you're doing something together. We curate board games, dinners, hikes, and sports that keep the vibe casual and stress-free.
+              Meeting new people is easier when you&apos;re doing something together. We curate board games, dinners, hikes, and sports that keep the vibe casual and stress-free.
             </p>
           </div>
 
@@ -159,10 +159,12 @@ export default function Home() {
       <div className="relative w-full overflow-hidden bg-[#050508]">
         {/* Static Background Image (Dimmed for quality mask, with a smooth blend gradient at the top edge) */}
         <div className="absolute inset-0 z-0 pointer-events-none bg-[#050508]">
-          <img
+          <Image
             src="/assets/bg-footer.png"
             alt="Footer Background"
-            className="w-full h-full object-cover opacity-[.72]"
+            fill
+            className="object-cover opacity-[.72]"
+            sizes="100vw"
           />
           {/* Top blend overlay to smooth the transition from the showcase background to the footer landscape */}
           <div className="absolute top-0 inset-x-0 h-32 md:h-48 bg-gradient-to-b from-[#050508] via-[#050508]/80 to-transparent"></div>
@@ -210,7 +212,7 @@ export default function Home() {
               {/* Left: Logo + Description */}
               <div className="max-w-[360px] mx-auto md:mx-0 text-center md:text-left">
                 <Link href="/" className="inline-block mb-5 hover:-translate-y-0.5 hover:brightness-110 transition-all duration-300">
-                  <img src="/assets/vayo-logo.png" alt="VAYO Logo" className="h-12 w-auto filter drop-shadow-[0_0_20px_rgba(99,102,241,0.25)] mx-auto md:mx-0" />
+                  <Image src="/assets/vayo-logo.png" alt="VAYO Logo" width={180} height={48} className="h-12 w-auto filter drop-shadow-[0_0_20px_rgba(99,102,241,0.25)] mx-auto md:mx-0" />
                 </Link>
                 <p className="text-xs md:text-sm leading-relaxed text-violet-200/45 font-normal tracking-wide">
                   Vayo Commune is a community-driven social platform and offline community that helps people meet others through real-life activities, hobbies, and shared experiences rather than just online chatting.

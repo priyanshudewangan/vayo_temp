@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 const events = [
   {
@@ -10,6 +11,7 @@ const events = [
     description: "Step outside the urban hustle. Scenic day hikes, weekend getaways, and nature treks with an energetic group of fellow wanderers.",
     media: "/assets/Sport_outdor.mp4",
     isVideo: true,
+    poster: "/assets/events/outdoors.png",
     vibe: "Active • Exploration • Nature",
     bgAccent: "from-emerald-500/20 to-teal-500/20",
     borderAccent: "group-hover:border-emerald-500/40",
@@ -26,6 +28,7 @@ const events = [
     description: "Break bread and share stories. Intimate curated group dining experiences at handpicked spots designed for authentic conversation.",
     media: "/assets/community.mp4",
     isVideo: true,
+    poster: "/assets/events/dinners.png",
     vibe: "Cozy • Gastronomy • Stories",
     bgAccent: "from-amber-500/20 to-orange-500/20",
     borderAccent: "group-hover:border-amber-500/40",
@@ -42,6 +45,7 @@ const events = [
     description: "Sip, roll, and strategize. Unwind in cozy living rooms or local cafes with classic tabletop games and vibrant social banter.",
     media: "/assets/Board_game.mp4",
     isVideo: true,
+    poster: "/assets/events/boardgames.png",
     vibe: "Playful • Strategy • Banter",
     bgAccent: "from-indigo-500/20 to-violet-500/20",
     borderAccent: "group-hover:border-indigo-500/40",
@@ -149,6 +153,63 @@ const events = [
     }
   }
 ];
+
+// A performance-optimized video component that only plays when in viewport
+const LazyVideo = ({ src, className, poster }) => {
+  const videoRef = useRef(null);
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    if (!videoElement) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      {
+        root: null, // relative to the viewport
+        rootMargin: "80px", // pre-load slightly before it scrolls into view
+        threshold: 0.05,
+      }
+    );
+
+    observer.observe(videoElement);
+
+    return () => {
+      if (videoElement) {
+        observer.unobserve(videoElement);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    if (!videoElement) return;
+
+    if (isInView) {
+      videoElement.play().catch((err) => {
+        // Safe fallback for standard autoplay restrictions
+        console.log("Autoplay interrupted or blocked:", err);
+      });
+    } else {
+      videoElement.pause();
+    }
+  }, [isInView]);
+
+  return (
+    <video
+      ref={videoRef}
+      src={src}
+      loop
+      muted
+      playsInline
+      preload="metadata"
+      className={className}
+      poster={poster}
+    />
+  );
+};
 
 export default function EventShowcase() {
   const containerRef = useRef(null);
@@ -258,21 +319,18 @@ export default function EventShowcase() {
                       <div className="relative w-full h-[220px] md:h-[250px] overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-t from-[#050508] via-[#050508]/20 to-transparent z-10"></div>
                         {event.isVideo ? (
-                          <video
+                          <LazyVideo
                             src={event.media}
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            preload="metadata"
+                            poster={event.poster}
                             className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
                           />
                         ) : (
-                          <img
+                          <Image
                             src={event.media}
                             alt={event.title}
-                            className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
-                            loading="lazy"
+                            fill
+                            className="object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
+                            sizes="(max-width: 768px) 100vw, 360px"
                           />
                         )}
 

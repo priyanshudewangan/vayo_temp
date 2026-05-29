@@ -43,7 +43,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-5 py-24 overflow-hidden">
-        <div className="relative z-20 w-full max-w-[600px] flex flex-col items-center justify-center">
+        <div className="relative z-20 w-full max-w-[600px] flex flex-col items-center justify-center -translate-y-8 md:-translate-y-14">
           <div className="text-[11px] md:text-xs font-semibold text-violet-200/60 tracking-[2px] uppercase mb-8 md:mb-10">
             Stop Searching. Start Belonging.
           </div>

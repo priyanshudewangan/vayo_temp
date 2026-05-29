@@ -8,7 +8,7 @@ const events = [
     id: "outdoors",
     title: "Outdoor Adventures",
     description: "Step outside the urban hustle. Scenic day hikes, weekend getaways, and nature treks with an energetic group of fellow wanderers.",
-    media: "/assets/Sport_outdor.MOV",
+    media: "/assets/Sport_outdor.mp4",
     isVideo: true,
     vibe: "Active • Exploration • Nature",
     bgAccent: "from-emerald-500/20 to-teal-500/20",
@@ -24,7 +24,7 @@ const events = [
     id: "dinners",
     title: "Community Dinners",
     description: "Break bread and share stories. Intimate curated group dining experiences at handpicked spots designed for authentic conversation.",
-    media: "/assets/community.MOV",
+    media: "/assets/community.mp4",
     isVideo: true,
     vibe: "Cozy • Gastronomy • Stories",
     bgAccent: "from-amber-500/20 to-orange-500/20",
@@ -40,7 +40,7 @@ const events = [
     id: "boardgames",
     title: "Board Game Socials",
     description: "Sip, roll, and strategize. Unwind in cozy living rooms or local cafes with classic tabletop games and vibrant social banter.",
-    media: "/assets/Board_game.MOV",
+    media: "/assets/Board_game.mp4",
     isVideo: true,
     vibe: "Playful • Strategy • Banter",
     bgAccent: "from-indigo-500/20 to-violet-500/20",
@@ -72,7 +72,7 @@ const events = [
     id: "holi",
     title: "Holi Celebration",
     description: "Colors, music, and endless laughter. Celebrate the festival of colors with our warm, welcoming community, making memories that last a lifetime.",
-    media: "/assets/HOLI.MOV",
+    media: "/assets/HOLI.mp4",
     isVideo: true,
     vibe: "Festive • Colors • Celebration",
     bgAccent: "from-pink-500/20 to-rose-500/20",
@@ -88,7 +88,7 @@ const events = [
     id: "sankranti",
     title: "Sankranti Celebration",
     description: "Celebrate the harvest season with kites flying high, traditional festive delicacies, and a warm community sharing the joy of new beginnings.",
-    media: "/assets/Sankranti_Meetup.MOV",
+    media: "/assets/Sankranti_Meetup.mp4",
     isVideo: true,
     vibe: "Culture • Festival • Joy",
     bgAccent: "from-yellow-500/20 to-amber-500/20",
@@ -104,7 +104,7 @@ const events = [
     id: "cafes",
     title: "Cafe Explorations",
     description: "Unwind at the city's finest aesthetic cafes. Perfect for sharing book recommendations, trying artisanal coffees, and relaxed talks.",
-    media: "/assets/Cafe_exploring.MOV",
+    media: "/assets/Cafe_exploring.mp4",
     isVideo: true,
     vibe: "Cozy • Coffee • Conversations",
     bgAccent: "from-orange-600/20 to-amber-700/20",
@@ -120,7 +120,7 @@ const events = [
     id: "Social",
     title: "Socials",
     description: "Enjoy sunset views, premium light displays, and ambient acoustics with friends old and new at handpicked rooftop spots.",
-    media: "/assets/IMG_5839.MOV",
+    media: "/assets/IMG_5839.mp4",
     isVideo: true,
     vibe: "Skyline • Music • Vibe",
     bgAccent: "from-purple-500/20 to-fuchsia-500/20",
@@ -136,7 +136,7 @@ const events = [
     id: "creative",
     title: "Creative Workshops",
     description: "Hands-on collaborative sessions from pottery making to coffee tasting. Discover new skills and share ideas with curious peers.",
-    media: "/assets/IMG_5822.MOV",
+    media: "/assets/IMG_5822.mp4",
     isVideo: true,
     vibe: "Artistic • Hands-On • Curious",
     bgAccent: "from-cyan-500/20 to-teal-500/20",
@@ -264,6 +264,7 @@ export default function EventShowcase() {
                             loop
                             muted
                             playsInline
+                            preload="metadata"
                             className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 ease-out"
                           />
                         ) : (

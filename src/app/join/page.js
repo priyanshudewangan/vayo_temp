@@ -95,6 +95,16 @@ function JoinFormContent() {
                 title="VAYO - Let's Do It 💙"
                 className="w-full border-0"
               ></iframe>
+              <div className="text-center mt-4">
+                <a
+                  href={tallyUrl.replace('&transparentBackground=1', '')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-xs text-white/40 hover:text-indigo-400 underline transition-colors"
+                >
+                  Not loading? Open the form directly ↗
+                </a>
+              </div>
             </div>
           </div>
         </div>
